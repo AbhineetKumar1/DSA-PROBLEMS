@@ -1,0 +1,27 @@
+//leetcode daily problem dt :- 9-10-2024
+class Solution {
+    public int minAddToMakeValid(String s) {
+        // Count of unmatched open brackets
+        int open = 0;
+        // Count of unmatched close brackets
+        int close = 0;
+        
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                // Increment count of unmatched open brackets
+                open++;
+            } else {
+                if (open > 0) {
+                    // We have an unmatched open, so this close matches it
+                    open--;
+                } else {
+                    // No unmatched open, so this close is unmatched
+                    close++;
+                }
+            }
+        }
+        
+        // The total number of unmatched open + unmatched close brackets
+        return open + close;
+    }
+}
