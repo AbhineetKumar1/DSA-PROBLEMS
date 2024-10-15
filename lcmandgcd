@@ -1,0 +1,20 @@
+lass Solution {
+    static Long[] lcmAndGcd(Long A, Long B) {
+        // Function to calculate GCD using Euclidean algorithm
+        long gcd = gcd(A, B);
+        
+        // LCM formula: LCM(A, B) = (A * B) / GCD(A, B)
+        long lcm = (A * B) / gcd;
+        
+        // Return both LCM and GCD as an array
+        return new Long[] {lcm, gcd};
+    }
+
+    // Helper method to calculate GCD using Euclidean algorithm
+    static long gcd(Long A, Long B) {
+        if (B == 0) {
+            return A;
+        }
+        return gcd(B, A % B);
+    }
+}
